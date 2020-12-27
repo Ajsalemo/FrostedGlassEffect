@@ -1,8 +1,33 @@
 <div
   class="h-112 w-9/12 shadow-glass rounded-3xl border-black bg-white bg-opacity-25 backdrop-filter mx-auto relative"
 >
-  <div class="bg-white rounded-t-3xl h-10">
+  <div class="bg-white rounded-t-3xl h-10 border-black">
     <img [src]="carIcon" alt="bmw icon" class="h-12 w-20 pl-8" />
   </div>
-  <img [src]="carImage" alt="bmw m235i" class="absolute sm:h-80 sm:right-14" />
+  <div class="md:flex">
+    <h1 class="text-center text-white">BMW M235i</h1>
+    <div class="text-white grid grid-cols-2 gap-4 text-center">
+      <div>
+        <h3>Engine</h3>
+        <h2>N55</h2>
+      </div>
+      <div>
+        <h3>Engine</h3>
+        <h2>N55</h2>
+      </div>
+      <div>
+        <h3>Engine</h3>
+        <h2>N55</h2>
+      </div>
+      <div>
+        <h3>Engine</h3>
+        <h2>N55</h2>
+      </div>
+    </div>
+    <img
+      [src]="carImage"
+      alt="bmw m235i"
+      class="absolute sm:h-80 sm:right-14 bottom-0"
+    />
+  </div>
 </div>
