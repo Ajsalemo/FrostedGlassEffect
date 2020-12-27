@@ -4,4 +4,5 @@ import { Component } from '@angular/core';
   templateUrl: './glass.component.html',
 })
 export class GlassComponent {
+  carImage: string = '../../../assets/images/m235i.png'
 }
