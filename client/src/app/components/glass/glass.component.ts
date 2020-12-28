@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'glass-component',
+  selector: 'app-glass',
   templateUrl: './glass.component.html',
 })
 export class GlassComponent {
