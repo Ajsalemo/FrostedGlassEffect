@@ -12,7 +12,7 @@ module.exports = (isProd) => ({
         glass: "0 0 1rem 0 rgba(0, 0, 0, .2)",
       },
       height: {
-        112: "26rem",
+        112: "30rem",
       },
     },
   },
