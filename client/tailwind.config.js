@@ -17,7 +17,10 @@ module.exports = (isProd) => ({
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ["hover"],
+      padding: ["hover"],
+    },
   },
   plugins: [],
 });
