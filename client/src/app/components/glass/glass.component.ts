@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
 })
 export class GlassComponent {
   carImage: string = 'assets/images/m235i.png'
-  carIcon: string = 'assets/images/bmw_icon.png';
 }

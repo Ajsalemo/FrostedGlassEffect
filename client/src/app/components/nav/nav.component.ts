@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
 })
-export class NavComponent {}
+export class NavComponent {
+  carIcon: string = 'assets/images/bmw_icon.png';
+}

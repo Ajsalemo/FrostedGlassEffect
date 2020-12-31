@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-specs',
   templateUrl: './specs.component.html',
 })
-export class SpecsComponent {}
+export class SpecsComponent {
+  carImageFront: string = 'assets/images/m235i_front.png'
+}
