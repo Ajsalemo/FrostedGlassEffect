@@ -40,13 +40,13 @@
         <version>1.12.0</version>
         <configuration>
           <schemaVersion>v2</schemaVersion>
-          <subscriptionId>redacted</subscriptionId>
-          <resourceGroup>redacted</resourceGroup>
+          <subscriptionId>4388fa06-bf66-4497-82c2-991ba75ecb97</subscriptionId>
+          <resourceGroup>ansalemo-rg</resourceGroup>
           <appName>frosted-glass-api</appName>
           <pricingTier>B1</pricingTier>
           <region>eastus</region>
-          <appServicePlanName>redacted</appServicePlanName>
-          <appServicePlanResourceGroup>redacted</appServicePlanResourceGroup>
+          <appServicePlanName>ansalemo-asp</appServicePlanName>
+          <appServicePlanResourceGroup>ansalemo-rg</appServicePlanResourceGroup>
           <runtime>
             <os>Linux</os>
             <javaVersion>Java 11</javaVersion>

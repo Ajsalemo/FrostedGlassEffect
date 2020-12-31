@@ -1,6 +1,9 @@
 <nav class="pr-8 h-full flex items-center justify-between">
   <a routerLink="/"
-    ><img [src]="carIcon" alt="bmw icon" class="h-12 w-20 pl-8 -mt-1 flex justify-between"
+    ><img
+      [src]="carIcon"
+      alt="bmw icon"
+      class="h-12 w-20 pl-8 -mt-1 flex justify-between"
   /></a>
 
   <ul class="hidden md:flex text-sm w-28 justify-between h-full items-center">
@@ -16,6 +19,48 @@
     </li>
   </ul>
   <div class="flex md:hidden">
-    <i class="fas fa-bars cursor-pointer"></i>
+    <button (click)="visibilityBoolean = !visibilityBoolean">
+      <i class="fas fa-bars cursor-pointer"></i>
+    </button>
+
+    <div
+      class="origin-top-right absolute right-0 mt-8 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      *ngIf="visibilityBoolean"
+    >
+      <div
+        class="py-1"
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="options-menu"
+      >
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          role="menuitem"
+          >Account settings</a
+        >
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          role="menuitem"
+          >Support</a
+        >
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          role="menuitem"
+          >License</a
+        >
+        <form method="POST" action="#">
+          <button
+            type="submit"
+            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+            role="menuitem"
+          >
+            Sign out
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </nav>
