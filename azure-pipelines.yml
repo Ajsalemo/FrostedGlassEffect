@@ -34,6 +34,12 @@ stages:
       displayName: 'Maven Package'
       inputs:
         mavenPomFile: '$(System.DefaultWorkingDirectory)/server/api/pom.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.11'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: false
+        testResultsFiles: '**/TEST-*.xml'
+        goals: 'package'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
