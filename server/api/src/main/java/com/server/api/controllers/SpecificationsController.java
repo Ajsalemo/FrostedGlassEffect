@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SpecificationsController {
     @Autowired
+    public String specificationDescription;
     private SpecificationRepository specificationRepository;
-       
+    
     @GetMapping("/specifications")
     public List<Specifications> listAll() {
         return specificationRepository.findAll();
     }
-       
 }
