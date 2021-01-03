@@ -1,6 +1,7 @@
 <div
   class="bg-gray-900 h-screen shadow-radial flex flex-col justify-center"
   [lazyLoad]="backgroundImage"
+  [@routerTransition]="getPageTransition(routerOutlet)"
 >
-  <router-outlet></router-outlet>
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
