@@ -4,71 +4,90 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
+  - main
 
 variables:
-
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '520db981-245f-4852-aed3-5b9ecd9879bc'
-  
+  azureSubscription: "520db981-245f-4852-aed3-5b9ecd9879bc"
   # Web app name
-  webAppName: 'frosted-glass-api'
-
+  webAppName: "frosted-glass-api"
   # Environment name
-  environmentName: 'frosted-glass-api'
-  
+  environmentName: "frosted-glass-api"
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: "ubuntu-latest"
+  # Keyvault name
+  keyVaultName: "ansalemo-keyvault"
+  # Keyvault values
+  keyVaultValues: SPRINGDATASOURCEDATABASE, SPRINGDATASOURCEHOST, SPRINGDATASOURCEPASSWORD, SPRINGDATASOURCEPORT, SPRINGDATASOURCEUSERNAME"
 
 stages:
-- stage: Build
-  displayName: Build stage
-  jobs:
-  - job: MavenPackageAndPublishArtifacts
-    displayName: Maven Package and Publish Artifacts
-    pool:
-      vmImage: $(vmImageName)
-    
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: '$(System.DefaultWorkingDirectory)/server/api/pom.xml'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.11'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: false
-        testResultsFiles: '**/TEST-*.xml'
-        goals: 'package'
-
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)/server/api'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)/server/api
-
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
-
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeployLinuxWebApp
-    displayName: Deploy Linux Web App
-    environment: $(environmentName)
-    pool: 
-      vmImage: $(vmImageName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: frosted-glass-api'
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: MavenPackageAndPublishArtifacts
+        displayName: Maven Package and Publish Artifacts
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          # Azure Key Vault
+          # Download Azure Key Vault secrets
+          - task: AzureKeyVault@1
             inputs:
               azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
-              package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
+              keyVaultName: $(keyVaultName)
+              secretsFilter: $(keyVaultValues)
+              runAsPreJob: false # Azure DevOps Services only
+          - task: replacetokens@3
+            inputs:
+              rootDirectory: '$(System.DefaultWorkingDirectory)/server/api/src/main/resources'
+              targetFiles: '**/*.properties'
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: false
+              tokenPrefix: '#{'
+              tokenSuffix: '}#'
+              useLegacyPattern: false
+              enableTelemetry: false
+          - task: Maven@3
+            displayName: "Maven Package"
+            inputs:
+              mavenPomFile: "$(System.DefaultWorkingDirectory)/server/api/pom.xml"
+              javaHomeOption: "JDKVersion"
+              jdkVersionOption: "1.11"
+              jdkArchitectureOption: "x64"
+              publishJUnitResults: false
+              testResultsFiles: "**/TEST-*.xml"
+              goals: "package"
+
+          - task: CopyFiles@2
+            displayName: "Copy Files to artifact staging directory"
+            inputs:
+              SourceFolder: "$(System.DefaultWorkingDirectory)/server/api"
+              Contents: "**/target/*.?(war|jar)"
+              TargetFolder: $(Build.ArtifactStagingDirectory)/server/api
+
+          - upload: $(Build.ArtifactStagingDirectory)
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: DeployLinuxWebApp
+        displayName: Deploy Linux Web App
+        environment: $(environmentName)
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebApp@1
+                  displayName: "Azure Web App Deploy: frosted-glass-api"
+                  inputs:
+                    azureSubscription: $(azureSubscription)
+                    appType: webAppLinux
+                    appName: $(webAppName)
+                    package: "$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)"
