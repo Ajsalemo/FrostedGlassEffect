@@ -33,12 +33,12 @@ stages:
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
-        mavenPomFile: '$(System.DefaultWorkingDirectory)/FrostedGlassEffect/server/api/pom.xml'
+        mavenPomFile: '$(System.DefaultWorkingDirectory)/server/api/pom.xml'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)/FrostedGlassEffect/server/api'
+        SourceFolder: '$(System.DefaultWorkingDirectory)/server/api'
         Contents: '**/target/*.?(war|jar)'
         TargetFolder: $(Build.ArtifactStagingDirectory)
 
