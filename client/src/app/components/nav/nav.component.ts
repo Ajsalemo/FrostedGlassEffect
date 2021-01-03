@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './nav.component.html',
 })
 export class NavComponent {
-  carIcon: string = 'assets/images/bmw_icon.png';
-  visibilityBoolean: boolean = false;
+  carIcon = 'assets/images/bmw_icon.png';
+  visibilityBoolean = false;
 }

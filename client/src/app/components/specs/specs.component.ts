@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './specs.component.html',
 })
 export class SpecsComponent {
-  carImageFront: string = 'assets/images/m235i_front.png'
+  carImageFront = 'assets/images/m235i_front.png';
 }
