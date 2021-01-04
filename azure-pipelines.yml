@@ -37,6 +37,7 @@ stages:
               keyVaultName: $(keyVaultName)
               secretsFilter: $(keyVaultValues)
               runAsPreJob: false # Azure DevOps Services only
+          # Replace application.properties variables with the stored variables in the Keyvault
           - task: replacetokens@3
             inputs:
               rootDirectory: '$(System.DefaultWorkingDirectory)/server/api/src/main/resources'
