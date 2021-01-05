@@ -71,7 +71,7 @@ VALUES
         '52 L / 11.4 UK gallons / 13.7 US gallons',
         '189 g/Km (BMW)',
         '250 km/h or 155 Mph',
-        '5.0 s',
+        '4.4 (s)',
         'RWD',
         'Coupe',
         '177.4 cm or 69.84 inches',
