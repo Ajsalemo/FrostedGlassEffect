@@ -16,7 +16,6 @@
   <description>API for the FrostedGlassEffect client</description>
   <properties>
     <java.version>11</java.version>
-    <maven.test.skip>true</maven.test.skip>
   </properties>
   <dependencies>
     <dependency>
