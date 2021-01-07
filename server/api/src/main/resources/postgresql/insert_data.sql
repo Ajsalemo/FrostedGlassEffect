@@ -98,3 +98,12 @@ VALUES
         2,
         'f22'
 );
+
+INSERT INTO images 
+(
+    id,
+    image_src
+)
+VALUES
+(1, 'https://glenshelly.com/assets/img/resized/1-r-q100-m1560495422.jpg'),
+(2, 'https://www.bimmerpost.com/storyimages/44054c78-c441-7448.jpg');

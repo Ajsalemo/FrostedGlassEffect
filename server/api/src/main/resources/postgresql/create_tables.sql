@@ -48,3 +48,9 @@ CREATE TABLE specifications
     number_of_doors INT NOT NULL,
     generation VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE images
+(
+    id INT,
+    image_src VARCHAR NOT NULL
+);
