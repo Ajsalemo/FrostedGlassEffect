@@ -8,6 +8,10 @@
     <h1 class="text-white font-semibold lg:mt-12 text-2xl text-center">
       SPECS
     </h1>
+    <span class="text-red-700" *ngIf="isError">
+      Sorry, an error occurred. 
+      {{ errorStatus }}: {{ errorStatusText }}
+    </span>
     <img
       [src]="carImageFront"
       alt="bmw m235i"
