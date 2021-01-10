@@ -5,13 +5,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlassComponent } from '@components/glass/glass.component';
 import { AppComponent } from '@components/home/app.component';
 import { NavComponent } from '@components/nav/nav.component';
+import { SpecsComponent } from '@components/specs/specs.component';
+import { GetSpecificationsService } from '@services/getspecifications.service.ts';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AppRoutingModule } from './app-routing.module';
-import { SpecsComponent } from './components/specs/specs.component';
 @NgModule({
   declarations: [AppComponent, GlassComponent, NavComponent, SpecsComponent],
-  imports: [BrowserModule, AppRoutingModule, LazyLoadImageModule, CommonModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LazyLoadImageModule,
+    CommonModule,
+    BrowserAnimationsModule,
+  ],
+  providers: [GetSpecificationsService],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
