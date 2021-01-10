@@ -9,7 +9,7 @@ export class GetSpecificationsService {
 
   async getSpecifications() {
     const BASE_API_URL =
-      'https://frostedglassapi.azurewebsites.net/specifications';
+      'https://frosted-glass-api.azurewebsites.net/specifications';
     try {
       return this.httpClient
         .get(BASE_API_URL)
