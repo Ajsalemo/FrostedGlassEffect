@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +10,7 @@ import { SpecsComponent } from '@components/specs/specs.component';
 import { GetSpecificationsService } from '@services/getspecifications.service.ts';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [AppComponent, GlassComponent, NavComponent, SpecsComponent],
   imports: [
@@ -17,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     LazyLoadImageModule,
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [GetSpecificationsService],
   bootstrap: [AppComponent],
