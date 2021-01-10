@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,7 +10,11 @@ export class GetSpecificationsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getSpecifications(): Observable<object> {
-    return this.httpClient.get(this.BASE_API_URL);
+  getSpecifications(): Observable<any> {
+    return this.httpClient.get(this.BASE_API_URL).pipe(
+      catchError((err: any) => {
+        return throwError(err);
+      })
+    );
   }
 }

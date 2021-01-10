@@ -10,6 +10,7 @@ export class AppComponent {
   backgroundImage = 'assets/images/blur.jpg';
 
   getPageTransition(routerOutlet: RouterOutlet): any {
+    // Return the router state to activate page transition animation
     return routerOutlet.isActivated ? routerOutlet.activatedRoute : '';
   }
 }
