@@ -1,8 +1,24 @@
+import {
+  animate, state,
+  style,
+  transition, trigger
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { GetSpecificationsService } from '@services/getspecifications.service.ts';
 @Component({
   selector: 'app-specs',
   templateUrl: './specs.component.html',
+  animations: [
+    trigger('fadeInOut', [
+      state(
+        'void',
+        style({
+          opacity: 0,
+        })
+      ),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ],
 })
 export class SpecsComponent implements OnInit {
   carImageFront = 'assets/images/m235i_front.png';
