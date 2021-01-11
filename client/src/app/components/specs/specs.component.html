@@ -1,21 +1,29 @@
 <div
-  class="h-112 w-9/12 shadow-glass rounded-3xl bg-black bg-opacity-90 backdrop-filter mx-auto relative border-2 border-black"
+  class="h-full w-9/12 shadow-glass rounded-3xl bg-black bg-opacity-90 backdrop-filter mx-auto relative border-2 border-black"
 >
   <div class="bg-white rounded-t-3xl h-10 border-black">
     <app-nav></app-nav>
   </div>
-  <div class="md:flex md:flex-col md:w-1/2 text-center">
-    <h1 class="text-white font-semibold lg:mt-12 text-2xl text-center">
-      SPECS
-    </h1>
-    <span class="text-red-700" *ngIf="isError">
-      Sorry, an error occurred. <br/>
-      {{ errorStatus }}: {{ errorStatusText }}
-    </span>
-    <img
-      [src]="carImageFront"
-      alt="bmw m235i"
-      class="absolute sm:h-80 sm:right-14 bottom-0"
-    />
+  <h1 class="text-white font-semibold mt-4 text-2xl text-center">SPECS</h1>
+  <div class="flex flex-col lg:flex-row text-center h-full">
+    <div class="lg:w-1/2">
+      <span class="text-red-700" *ngIf="isError">
+        Sorry, an error occurred. <br />
+        {{ errorStatus }}: {{ errorStatusText }}
+      </span>
+      <app-loading-indicator [isLoading]="isLoading"></app-loading-indicator>
+      <div class="text-white">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+        laboriosam harum adipisci quia voluptatum cum error asperiores, nihil
+        exercitationem dolorem illum dolor ex excepturi, quod voluptates
+        cupiditate nam, similique rerum. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Voluptas laboriosam harum adipisci quia voluptatum cum
+        error asperiores, nihil exercitationem dolorem illum dolor ex excepturi,
+        quod voluptates cupiditate nam, similique rerum.
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <img [src]="carImageFront" alt="bmw m235i" class="w-3/4 lg:w-full" />
+    </div>
   </div>
 </div>

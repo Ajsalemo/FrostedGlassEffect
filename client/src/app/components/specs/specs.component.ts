@@ -9,22 +9,29 @@ export class SpecsComponent implements OnInit {
   errorStatus = '';
   errorStatusText = '';
   isError = false;
+  isLoading = false;
 
   constructor(private getSpecificationsService: GetSpecificationsService) {}
 
-  ngOnInit() {
+  getSpecificationsOnLoad() {
     this.isError = false;
+    this.isLoading = true;
     this.getSpecificationsService.getSpecifications().subscribe(
       (res: object) => {
         this.isError = false;
+        this.isLoading = true;
         console.log(res);
       },
       (err: any) => {
-        console.log(err)
         this.isError = true;
+        this.isLoading = false;
         this.errorStatus = err.status;
         this.errorStatusText = err.statusText;
       }
     );
+  }
+
+  ngOnInit() {
+    this.getSpecificationsOnLoad();
   }
 }
