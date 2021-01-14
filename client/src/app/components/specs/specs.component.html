@@ -16,8 +16,10 @@
       </div>
       <ng-template #content>
         <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
-          <!-- <ul *ngFor="let key of Object.keys(carSpecificationsRes)">
-            <li>{{ key }}: {{ carSpecificationsRes[key] }}</li>
+          <!-- <ul>
+            <li *ngFor="let key of Object.keys(carSpecificationsRes)">
+              {{ key }}: {{ carSpecificationsRes[key] }}
+            </li>
           </ul> -->
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi itaque
           saepe eaque neque sint quod, libero quibusdam consectetur modi
