@@ -15,15 +15,15 @@
         <app-loading-indicator></app-loading-indicator>
       </div>
       <ng-template #content>
-        <p class="text-white" *ngIf="!isLoading" [@fadeInOut]>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          laboriosam harum adipisci quia voluptatum cum error asperiores, nihil
-          exercitationem dolorem illum dolor ex excepturi, quod voluptates
-          cupiditate nam, similique rerum. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Voluptas laboriosam harum adipisci quia
-          voluptatum cum error asperiores, nihil exercitationem dolorem illum
-          dolor ex excepturi, quod voluptates cupiditate nam, similique rerum.
-        </p>
+        <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
+          <!-- <ul *ngFor="let key of Object.keys(carSpecificationsRes)">
+            <li>{{ key }}: {{ carSpecificationsRes[key] }}</li>
+          </ul> -->
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi itaque
+          saepe eaque neque sint quod, libero quibusdam consectetur modi
+          ducimus, porro consequuntur! Quod minima possimus iste tempora
+          ducimus, nulla quis!
+        </div>
       </ng-template>
     </div>
     <div class="flex justify-center">

@@ -1,7 +1,9 @@
 import {
-  animate, state,
+  animate,
+  state,
   style,
-  transition, trigger
+  transition,
+  trigger
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { GetSpecificationsService } from '@services/getspecifications.service.ts';
@@ -22,6 +24,8 @@ import { GetSpecificationsService } from '@services/getspecifications.service.ts
 })
 export class SpecsComponent implements OnInit {
   carImageFront = 'assets/images/m235i_front.png';
+  carSpecificationsRes: any;
+  Object = Object;
   errorStatus = '';
   errorStatusText = '';
   isError = false;
@@ -33,10 +37,10 @@ export class SpecsComponent implements OnInit {
     this.isError = false;
     this.isLoading = true;
     this.getSpecificationsService.getSpecifications().subscribe(
-      (res: object) => {
+      (res: any) => {
         this.isError = false;
-        this.isLoading = true;
-        console.log(res);
+        this.isLoading = false;
+        this.carSpecificationsRes = res[0];
       },
       (err: any) => {
         this.isError = true;
