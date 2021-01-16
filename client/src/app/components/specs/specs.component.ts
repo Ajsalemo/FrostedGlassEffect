@@ -33,14 +33,14 @@ export class SpecsComponent implements OnInit {
 
   constructor(private getSpecificationsService: GetSpecificationsService) {}
 
-  getSpecificationsOnLoad() {
+  getSpecificationsOnLoad(): void {
     this.isError = false;
     this.isLoading = true;
     this.getSpecificationsService.getSpecifications().subscribe(
       (res: any) => {
         this.isError = false;
         this.isLoading = false;
-        this.carSpecificationsRes = res[0];
+        this.carSpecificationsRes = this.filterSpecificationResponse(res[0]);
       },
       (err: any) => {
         this.isError = true;
@@ -49,6 +49,13 @@ export class SpecsComponent implements OnInit {
         this.errorStatusText = err.statusText;
       }
     );
+  }
+
+  // TODO - implement further response filtering/prettify
+  // Function that removes any uneeded properties, underscores and 'prettifies' the response in terms of capitalization.
+  filterSpecificationResponse(res: any): void {
+    const { id, ...rest } = res;
+    return rest;
   }
 
   ngOnInit() {
