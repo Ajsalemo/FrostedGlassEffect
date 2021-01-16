@@ -17,8 +17,8 @@
       <ng-template #content>
         <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
           <ul>
-            <li *ngFor="let key of Object.keys(carSpecificationsRes)">
-              {{ key }}: {{ carSpecificationsRes[key] }}
+            <li *ngFor="let specs of filteredCarSpecifications">
+              {{ specs }}
             </li>
           </ul>
         </div>

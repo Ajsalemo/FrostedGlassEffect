@@ -24,7 +24,7 @@ import { GetSpecificationsService } from '@services/getspecifications.service.ts
 })
 export class SpecsComponent implements OnInit {
   carImageFront = 'assets/images/m235i_front.png';
-  carSpecificationsRes: any;
+  filteredCarSpecifications = [];
   Object = Object;
   errorStatus = '';
   errorStatusText = '';
@@ -40,7 +40,7 @@ export class SpecsComponent implements OnInit {
       (res: any) => {
         this.isError = false;
         this.isLoading = false;
-        this.carSpecificationsRes = this.filterSpecificationResponse(res[0]);
+        this.filterSpecificationResponse(res[0]);
       },
       (err: any) => {
         this.isError = true;
@@ -51,11 +51,20 @@ export class SpecsComponent implements OnInit {
     );
   }
 
-  // TODO - implement further response filtering/prettify
   // Function that removes any uneeded properties, underscores and 'prettifies' the response in terms of capitalization.
   filterSpecificationResponse(res: any): void {
     const { id, ...rest } = res;
-    return rest;
+    const keys = Object.keys(rest);
+    keys.forEach((key) => {
+      // Replace all occurrences of the underscore symbol
+      const replaceKeys = key.replace(/_/g, ' ');
+      // Capitalize the first letter in the string
+      const caps = replaceKeys.charAt(0).toUpperCase();
+      // Add the rest of the string to the capitalized letter
+      const filteredKeys = `${caps}${replaceKeys.slice(1)}`;
+      // Push the newly constructed data into the array
+      this.filteredCarSpecifications.push(`${filteredKeys}: ${rest[key]}`);
+    });
   }
 
   ngOnInit() {
