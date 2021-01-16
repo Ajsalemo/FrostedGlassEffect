@@ -13,6 +13,7 @@ module.exports = (isProd) => ({
       },
       height: {
         112: "30rem",
+        fit: "fit-content",
       },
     },
   },
