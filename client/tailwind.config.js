@@ -15,6 +15,9 @@ module.exports = (isProd) => ({
         112: "30rem",
         fit: "fit-content",
       },
+      minHeight: {
+        112: "30rem",
+      },
     },
   },
   variants: {
