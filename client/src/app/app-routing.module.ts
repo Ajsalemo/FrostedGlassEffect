@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'photos', component: PhotosComponent, pathMatch: 'full' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
