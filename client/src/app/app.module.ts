@@ -12,9 +12,10 @@ import { GlobalHttpInterceptorService } from '@services/globalhttpinterceptor.se
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AppRoutingModule } from './app-routing.module';
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
-  declarations: [AppComponent, GlassComponent, NavComponent, SpecsComponent, LoadingIndicatorComponent],
+  declarations: [AppComponent, GlassComponent, NavComponent, SpecsComponent, LoadingIndicatorComponent, PhotosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

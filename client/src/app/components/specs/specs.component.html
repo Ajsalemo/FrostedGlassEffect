@@ -16,8 +16,8 @@
       </div>
       <ng-template #content>
         <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
-          <ul>
-            <li *ngFor="let specs of filteredCarSpecifications" class="text-sm">
+          <ul class="pb-4">
+            <li *ngFor="let specs of filteredCarSpecifications" class="text-xs sm:text-sm">
               {{ specs }}
             </li>
           </ul>
