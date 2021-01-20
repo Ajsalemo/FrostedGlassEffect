@@ -1,1 +1,31 @@
-<p>photos works!</p>
+<div
+  class="min-h-112 w-9/12 shadow-glass rounded-3xl bg-black bg-opacity-90 backdrop-filter mx-auto my-20 relative border-2 border-black"
+>
+  <div class="bg-white rounded-t-3xl h-10 border-black">
+    <app-nav></app-nav>
+  </div>
+  <h1 class="text-white font-semibold mt-4 text-2xl text-center">PHOTOS</h1>
+  <div class="flex flex-col-reverse lg:flex-row text-center h-full">
+    <div class="lg:w-1/2 flex-col">
+      <span class="text-red-700 block pb-4" *ngIf="isError">
+        Sorry, an error occurred. <br />
+        {{ errorStatus }}: {{ errorStatusText }}
+      </span>
+      <div *ngIf="isLoading; else content">
+        <app-loading-indicator></app-loading-indicator>
+      </div>
+      <ng-template #content>
+        <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
+          <ul class="pb-4">
+            <li *ngFor="let specs of filteredCarSpecifications" class="text-xs sm:text-sm">
+                Placeholder
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+    <div class="flex justify-center h-fit">
+      <img [src]="carImageFront" alt="bmw m235i" class="w-3/4 lg:w-full" />
+    </div>
+  </div>
+</div>
