@@ -5,13 +5,13 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class GetSpecificationsService {
-  SPECIFICATIONS_API_URL = 'https://frosted-glass-api.azurewebsites.net/specifications';
+export class GetPhotosService {
+  PHOTOS_API_URL = 'https://frosted-glass-api.azurewebsites.net/images';
 
   constructor(private httpClient: HttpClient) {}
 
-  getSpecifications(): Observable<any> {
-    return this.httpClient.get(this.SPECIFICATIONS_API_URL).pipe(
+  getPhotos(): Observable<any> {
+    return this.httpClient.get(this.PHOTOS_API_URL).pipe(
       catchError((err: any) => {
         return throwError(err);
       })
