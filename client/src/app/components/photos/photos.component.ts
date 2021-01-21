@@ -11,15 +11,27 @@ export class PhotosComponent implements OnInit {
   isError = false;
   isLoading = false;
   photosArray: string[];
+  errorStatus: any;
+  errorStatusText: any;
 
   constructor(private getPhotosService: GetPhotosService) {}
 
   getPhotoOnLoad(): void {
     this.isLoading = true;
-    this.getPhotosService.getPhotos().subscribe((res: any) => {
-      this.photosArray = res;
-      this.isLoading = false;
-    });
+    this.errorStatus = false;
+    this.getPhotosService.getPhotos().subscribe(
+      (res: any) => {
+        this.photosArray = res;
+        this.isLoading = false;
+        this.errorStatus = false;
+      },
+      (err: any) => {
+        this.isError = true;
+        this.isLoading = false;
+        this.errorStatus = err.status;
+        this.errorStatusText = err.statusText;
+      }
+    );
   }
 
   ngOnInit() {
