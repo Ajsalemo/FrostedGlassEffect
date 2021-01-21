@@ -1,9 +1,5 @@
 <div
-  class="bg-gray-900 shadow-radial flex flex-col justify-center min-h-screen"
-  [ngClass]="{
-    'h-full': currentURL === true,
-    'h-screen': currentURL === false
-  }"
+  class="bg-gray-900 shadow-radial flex flex-col justify-center min-h-screen h-full"
   [lazyLoad]="backgroundImage"
   [@routerTransition]="getPageTransition(routerOutlet)"
 >
