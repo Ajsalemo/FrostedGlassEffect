@@ -15,8 +15,10 @@ export class PhotosComponent implements OnInit {
   constructor(private getPhotosService: GetPhotosService) {}
 
   getPhotoOnLoad(): void {
+    this.isLoading = true;
     this.getPhotosService.getPhotos().subscribe((res: any) => {
       this.photosArray = res;
+      this.isLoading = false;
     });
   }
 

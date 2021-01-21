@@ -6,12 +6,12 @@
   </div>
   <h1 class="text-white font-semibold mt-4 text-2xl text-center">PHOTOS</h1>
   <div class="flex flex-col-reverse lg:flex-row text-center h-full">
-    <div class="lg:w-1/2 flex-col">
+    <div class="w-full h-32">
       <span class="text-red-700 block pb-4" *ngIf="isError">
         Sorry, an error occurred. <br />
         {{ errorStatus }}: {{ errorStatusText }}
       </span>
-      <div *ngIf="isLoading; else content">
+      <div *ngIf="isLoading; else content" class="flex h-full justify-center items-center">
         <app-loading-indicator></app-loading-indicator>
       </div>
       <ng-template #content>
