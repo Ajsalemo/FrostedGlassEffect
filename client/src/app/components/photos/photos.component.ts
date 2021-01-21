@@ -13,6 +13,7 @@ export class PhotosComponent implements OnInit {
   photosArray: string[];
   errorStatus: any;
   errorStatusText: any;
+  blurImage = 'assets/images/blur.jpg';
 
   constructor(private getPhotosService: GetPhotosService) {}
 

@@ -18,7 +18,7 @@
         <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
           <ul class="pb-4">
             <li *ngFor="let image of photosArray">
-              <img [lazyLoad]="image.image_src" alt="car photos" [useSrcset]="true" class="p-2 rounded-xl md:rounded-3xl"/>
+              <img [defaultImage]="blurImage" [lazyLoad]="image.image_src" alt="car photos" [useSrcset]="true" class="p-2 rounded-xl md:rounded-3xl"/>
             </li>
           </ul>
         </div>
