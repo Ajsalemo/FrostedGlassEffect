@@ -1,28 +1,26 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { sharedRouteTransitionFade } from '@animations/shared-route-transition-fade.animations';
+import { GetPhotosService } from '@services/getphotos.service';
 // This component can potentially be refactored into a reusable component with specs.component
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('void <=> *', animate(1000)),
-    ]),
-  ],
+  animations: sharedRouteTransitionFade,
 })
-export class PhotosComponent {
+export class PhotosComponent implements OnInit {
   isError = false;
   isLoading = false;
+  photosArray: string[];
+
+  constructor(private getPhotosService: GetPhotosService) {}
+
+  getPhotoOnLoad(): void {
+    this.getPhotosService.getPhotos().subscribe((res: any) => {
+      this.photosArray = res;
+    });
+  }
+
+  ngOnInit() {
+    this.getPhotoOnLoad();
+  }
 }

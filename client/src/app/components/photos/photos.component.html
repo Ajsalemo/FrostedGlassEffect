@@ -17,8 +17,8 @@
       <ng-template #content>
         <div class="text-white" *ngIf="!isLoading && !isError" [@fadeInOut]>
           <ul class="pb-4">
-            <li *ngFor="let specs of filteredCarSpecifications" class="text-xs sm:text-sm">
-                Placeholder
+            <li class="text-xs sm:text-sm" *ngFor="let image of photosArray">
+              <!-- <img [src]="image.image_src" alt="car photos" /> -->
             </li>
           </ul>
         </div>
