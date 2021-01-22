@@ -18,24 +18,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ConfigurationProperties("app.api")
 public class SwaggerConfig {
     private String title;
+    private String version;
+    private String description;
+    private String basePackage;
+    private String contactName;
+    private String contactEmail;
+    private String siteURL;
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2).select()
-            .apis(RequestHandlerSelectors
-                .basePackage("com.server.api.controllers"))
-            .paths(PathSelectors.regex("/.*"))
-            .build().apiInfo(apiEndPointsInfo());
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage(basePackage))
+                .paths(PathSelectors.regex("/.*")).build().apiInfo(apiEndPointsInfo());
     }
 
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title(title)
-            .description("Rest API to serve the clientside FrostedGlass application")
-            .contact(new Contact("Anthony Salemo", "https://frostedglass-m235i.netlify.app/", "ajssalemo@gmail.com"))
-            .license("Apache 2.0")
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-            .version("1.0.0")
-            .build();
+        return new ApiInfoBuilder().title(title).description(description)
+                .contact(new Contact(contactName, siteURL, contactEmail)).version(version).build();
     }
 
     public String gettitle() {
@@ -44,5 +42,53 @@ public class SwaggerConfig {
 
     public void settitle(String title) {
         this.title = title;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getBasePackage() {
+        return basePackage;
+    }
+
+    public void setBasePackage(String basePackage) {
+        this.basePackage = basePackage;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getSiteURL() {
+        return siteURL;
+    }
+
+    public void setSiteURL(String siteURL) {
+        this.siteURL = siteURL;
     }
 }
