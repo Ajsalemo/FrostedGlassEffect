@@ -1,5 +1,6 @@
 package com.server.api.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,7 +15,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@ConfigurationProperties("app.api")
 public class SwaggerConfig {
+    private String title;
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
@@ -25,12 +29,20 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiEndPointsInfo() {
-        return new ApiInfoBuilder().title("SpringBoot REST API")
+        return new ApiInfoBuilder().title(title)
             .description("Rest API to serve the clientside FrostedGlass application")
             .contact(new Contact("Anthony Salemo", "https://frostedglass-m235i.netlify.app/", "ajssalemo@gmail.com"))
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
             .version("1.0.0")
             .build();
+    }
+
+    public String gettitle() {
+        return title;
+    }
+
+    public void settitle(String title) {
+        this.title = title;
     }
 }
