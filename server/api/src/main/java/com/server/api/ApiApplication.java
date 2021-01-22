@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class ApiApplication {
-	public String description;	
+	private String description;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 	}
