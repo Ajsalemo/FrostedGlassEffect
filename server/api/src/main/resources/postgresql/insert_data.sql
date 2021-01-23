@@ -106,4 +106,6 @@ INSERT INTO images
 )
 VALUES
 (1, 'https://glenshelly.com/assets/img/resized/1-r-q100-m1560495422.jpg'),
-(2, 'https://www.bimmerpost.com/storyimages/44054c78-c441-7448.jpg');
+(2, 'https://www.bimmerpost.com/storyimages/44054c78-c441-7448.jpg'),
+(3, 'http://st.automobilemag.com/uploads/sites/11/2014/01/2014-BMW-M235i-Web-First-Drive-Photos-by-BMW-181.jpg'),
+(4, 'http://st.automobilemag.com/uploads/sites/11/2016/01/2014-BMW-M235i-side-profile-2.jpg');
