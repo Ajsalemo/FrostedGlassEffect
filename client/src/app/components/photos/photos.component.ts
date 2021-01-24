@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { sharedRouteTransitionFade } from '@animations/shared-route-transition-fade.animations';
 import { GetPhotosService } from '@services/getphotos.service';
-// This component can potentially be refactored into a reusable component with specs.component
+
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -13,7 +13,7 @@ export class PhotosComponent implements OnInit {
   photosArray: string[];
   errorStatus: any;
   errorStatusText: any;
-  blurImage = 'assets/images/blur.jpg';
+  blurImage = 'assets/images/blurred-loading.jpg';
 
   constructor(private getPhotosService: GetPhotosService) {}
 
