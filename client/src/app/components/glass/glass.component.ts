@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
 })
 export class GlassComponent {
   carImage = 'assets/images/m235i.png';
+  blurImage = 'assets/images/loading-img.png';
 }

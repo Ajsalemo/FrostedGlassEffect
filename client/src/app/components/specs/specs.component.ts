@@ -9,6 +9,7 @@ import { GetSpecificationsService } from '@services/getspecifications.service.ts
 })
 export class SpecsComponent implements OnInit {
   carImageFront = 'assets/images/m235i_front.png';
+  blurImage = 'assets/images/loading-img.png';
   filteredCarSpecifications = [];
   errorStatus = '';
   errorStatusText = '';

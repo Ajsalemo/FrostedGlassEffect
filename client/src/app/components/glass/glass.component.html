@@ -33,7 +33,8 @@
       View more
     </button>
     <img
-      [src]="carImage"
+      [lazyLoad]="carImage"
+      [defaultImage]="blurImage"
       alt="bmw m235i"
       class="absolute sm:h-80 sm:right-14 bottom-0"
     />
