@@ -1,7 +1,11 @@
 # FrostedGlassEffect
 
 <br>
-An Angular Frontend paired with a Springboot REST API that generates data by pulling it from an Azure PostgreSQL instance. This was created to start working with Java and Springboot more.
+An Angular frontend paired with a Springboot REST API that generates data by pulling it from an Azure PostgreSQL instance. Frontend and backend are separately deployed instances in which the frontend calls to the REST API via Angulars HttpClient. This was created to start working with Java and Springboot more.
+
+<br>
+Angular frontend deployed with Netlify.<br> 
+Springboot backend deployed with Azure DevOps pipelines.
 
 [https://frostedglass.netlify.com/](https://frostedglass.netlify.com/)
  
