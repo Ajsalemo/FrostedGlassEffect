@@ -12,7 +12,7 @@ export class GetPhotosService {
   constructor(private httpClient: HttpClient) {}
 
   getPhotos(): Observable<any> {
-    return this.httpClient.get(`${this.BASE_URL}/photos`).pipe(
+    return this.httpClient.get(`${this.BASE_URL}/images`).pipe(
       catchError((err: any) => {
         return throwError(err);
       })
