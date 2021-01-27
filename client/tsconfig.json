@@ -8,7 +8,8 @@
       "@assets/*": ["./src/assets/*"],
       "@services/*": ["./src/app/services/*"],
       "@base/*": ["./src/app/*"],
-      "@animations/*": ["./src/app/animations/*"]
+      "@animations/*": ["./src/app/animations/*"],
+      "@env/*": ["./src/environments/*"],
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
